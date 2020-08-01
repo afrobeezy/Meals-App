@@ -13,7 +13,7 @@ class MealDetailScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
-        style: TextStyle(fontSize: 20),
+        style: Theme.of(context).textTheme.title,
       ),
     );
   }
@@ -52,7 +52,10 @@ class MealDetailScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            buildSectionTitle(context, 'Ingredients'),
+            buildSectionTitle(
+              context,
+              'Ingredients',
+            ),
             buildContainer(
               ListView.builder(
                   itemBuilder: (ctx, index) => Card(
@@ -87,6 +90,7 @@ class MealDetailScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         elevation: 10,
         child: Icon(isFavorite(mealId) ? Icons.star : Icons.star_border),
+        backgroundColor: Colors.teal,
         onPressed: () => toggleFavorite(mealId),
       ),
     );
