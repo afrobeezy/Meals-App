@@ -71,20 +71,26 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Soulll Meal',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
-        accentColor: Colors.white54,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        primaryColor: Colors.white,
+        accentColor: Colors.red,
+        canvasColor: Colors.white,
         fontFamily: 'RaleWay',
         textTheme: ThemeData.light().textTheme.copyWith(
               body1: TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
+                fontSize: 15,
+                fontFamily: 'RaleWay',
               ),
               body2: TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
               title: TextStyle(
                   fontSize: 20,
-                  fontFamily: 'RobotoCondensed',
+                  fontFamily: 'RaleWay',
+                  fontWeight: FontWeight.bold),
+              subtitle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'RaleWay',
                   fontWeight: FontWeight.bold),
             ),
       ),

@@ -7,51 +7,71 @@ const DUMMY_CATEGORIES = const [
     id: 'c1',
     title: 'Italian',
     color: Colors.purple,
+    imageURL:
+        'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
   ),
   Category(
     id: 'c2',
     title: 'Quick & Easy',
     color: Colors.red,
+    imageURL:
+        'https://cdn.loveandlemons.com/wp-content/uploads/2018/06/IMG_12182-3.jpg',
   ),
   Category(
     id: 'c3',
     title: 'Hamburgers',
     color: Colors.orange,
+    imageURL:
+        'https://images.unsplash.com/photo-1491960693564-421771d727d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=999&q=80',
   ),
   Category(
     id: 'c4',
     title: 'German',
     color: Colors.amber,
+    imageURL:
+        'https://images.unsplash.com/photo-1547424450-75ec164925ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   ),
   Category(
     id: 'c5',
     title: 'Light & Lovely',
     color: Colors.blue,
+    imageURL:
+        'https://images.unsplash.com/photo-1587497539328-7e140d2ec8d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
   ),
   Category(
     id: 'c6',
     title: 'Exotic',
     color: Colors.green,
+    imageURL:
+        'https://images.unsplash.com/photo-1516901121982-4ba280115a36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80',
   ),
   Category(
     id: 'c7',
     title: 'Breakfast',
     color: Colors.lightBlue,
+    imageURL:
+        'https://images.unsplash.com/photo-1538220856186-0be0e085984d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=999&q=80',
   ),
   Category(
     id: 'c8',
     title: 'Asian',
-    color: Colors.lightGreen,
+    color: Colors.deepOrange,
+    imageURL:
+        'https://images.unsplash.com/photo-1583835746434-cf1534674b41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
   ),
   Category(
     id: 'c9',
     title: 'French',
     color: Colors.pink,
+    imageURL:
+        'https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1024x683.jpg',
   ),
   Category(
     id: 'c10',
     title: 'Summer',
     color: Colors.teal,
+    imageURL:
+        'https://images.unsplash.com/photo-1562421887-857e33a062bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80',
   ),
 ];
 

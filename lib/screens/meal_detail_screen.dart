@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/data/dummy_data.dart';
+import '../data/dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
@@ -39,7 +39,11 @@ class MealDetailScreen extends StatelessWidget {
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedMeal.title}'),
+        title: Text(
+          '${selectedMeal.title}',
+          style: TextStyle(color: Colors.red),
+        ),
+        iconTheme: new IconThemeData(color: Colors.red),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,7 +63,7 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                   itemBuilder: (ctx, index) => Card(
-                      color: Colors.teal,
+                      color: Colors.redAccent,
                       child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -74,9 +78,15 @@ class MealDetailScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        child: Text('#${(index + 1)}'),
+                        backgroundColor: Colors.redAccent[100],
+                        child: Text(
+                          '#${(index + 1)}',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
-                      title: Text(selectedMeal.steps[index]),
+                      title: Text(
+                        selectedMeal.steps[index],
+                      ),
                     ),
                     Divider(),
                   ],
@@ -90,7 +100,7 @@ class MealDetailScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         elevation: 10,
         child: Icon(isFavorite(mealId) ? Icons.star : Icons.star_border),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.red,
         onPressed: () => toggleFavorite(mealId),
       ),
     );

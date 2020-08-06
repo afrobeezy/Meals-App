@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/widgets/meal_item.dart';
-import 'package:mealsapp/models/meal.dart';
+import '../widgets/meal_item.dart';
+import '../models/meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
@@ -49,7 +49,9 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle),
+        title: Text(categoryTitle, style: TextStyle(color: Colors.red)),
+        elevation: 0.0,
+        iconTheme: new IconThemeData(color: Colors.red),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {

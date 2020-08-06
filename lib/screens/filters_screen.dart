@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/widgets/main_drawer.dart';
+import '../widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
   static const routeName = '/filters';
@@ -35,7 +35,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     Function updateValue,
   ) {
     return SwitchListTile(
-      activeColor: Colors.teal,
+      activeColor: Colors.red,
       title: Text(
         title,
         style: Theme.of(context).textTheme.title,
@@ -53,7 +53,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Filters'),
+          iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+          title: Text(
+            'Filters',
+            style: TextStyle(color: Theme.of(context).accentColor),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.save),

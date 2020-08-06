@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/screens/categories_screen.dart';
-import 'package:mealsapp/screens/favorite_screen.dart';
-import 'package:mealsapp/widgets/main_drawer.dart';
-import 'package:mealsapp/models/meal.dart';
+import '../screens/categories_screen.dart';
+import '../screens/favorite_screen.dart';
+import '../widgets/main_drawer.dart';
+import '../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
@@ -33,7 +33,13 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_pages[_selectedPageIndex]['title']),
+        title: Text(
+          _pages[_selectedPageIndex]['title'],
+          style: TextStyle(color: Theme.of(context).accentColor),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+        elevation: 0.0,
       ),
       drawer: Drawer(
         child: MainDrawer(),
@@ -42,10 +48,11 @@ class _TabsScreenState extends State<TabsScreen> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Theme.of(context).accentColor,
+        unselectedItemColor: Colors.redAccent[100],
+        selectedItemColor: Colors.redAccent[700],
         currentIndex: _selectedPageIndex,
         type: BottomNavigationBarType.shifting,
+        elevation: 0.0,
         items: [
           BottomNavigationBarItem(
             backgroundColor: Theme.of(context).primaryColor,

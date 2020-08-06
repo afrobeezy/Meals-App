@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/screens/filters_screen.dart';
+import '../screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
-      leading: Icon(icon, size: 26),
+      leading: Icon(
+        icon,
+        size: 26,
+        color: Colors.red,
+      ),
       title: (Text(
         title,
         style: TextStyle(fontSize: 20),
@@ -19,14 +23,20 @@ class MainDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            height: 120,
+            height: 150,
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            alignment: Alignment.centerLeft,
-            color: Theme.of(context).primaryColor,
+            alignment: Alignment.bottomLeft,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://foodphotography.pk/wp-content/uploads/2018/01/23244.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Text(
-              'Soulll Meal',
-              style: TextStyle(fontSize: 30, color: Colors.white),
+              'Meal Bible',
+              style: TextStyle(fontSize: 40, color: Colors.white),
             ),
           ),
           SizedBox(
