@@ -50,7 +50,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle, style: TextStyle(color: Colors.red)),
-        elevation: 0.0,
         iconTheme: new IconThemeData(color: Colors.red),
       ),
       body: ListView.builder(
