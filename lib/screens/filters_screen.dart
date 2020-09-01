@@ -53,10 +53,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+          elevation: 0,
+          iconTheme: new IconThemeData(color: Colors.red),
           title: Text(
             'Filters',
-            style: TextStyle(color: Theme.of(context).accentColor),
+            style: TextStyle(color: Colors.red),
           ),
           actions: <Widget>[
             IconButton(
