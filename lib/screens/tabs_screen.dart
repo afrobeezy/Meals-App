@@ -35,10 +35,10 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(
           _pages[_selectedPageIndex]['title'],
-          style: TextStyle(color: Theme.of(context).accentColor),
+          style: TextStyle(color: Colors.red),
         ),
         backgroundColor: Theme.of(context).primaryColor,
-        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+        iconTheme: new IconThemeData(color: Colors.red),
         elevation: 0.0,
       ),
       drawer: Drawer(
