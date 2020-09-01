@@ -6,6 +6,7 @@ import './screens/meal_detail_screen.dart';
 import './screens/tabs_screen.dart';
 import 'screens/categories_screen.dart';
 import './models/meal.dart';
+import 'package:mealsapp/utils/const.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,31 +70,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Soulll Meal',
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Colors.red,
-        canvasColor: Colors.white,
-        fontFamily: 'RaleWay',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              body1: TextStyle(
-                fontSize: 15,
-                fontFamily: 'RaleWay',
-              ),
-              body2: TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
-              title: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'RaleWay',
-                  fontWeight: FontWeight.bold),
-              subtitle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: 'RaleWay',
-                  fontWeight: FontWeight.bold),
-            ),
-      ),
+      title: 'Meal Bible',
+      theme: Constants.lightTheme,
+      darkTheme: Constants.darkTheme,
 //      home: CategoriesScreen(),
       initialRoute: '/',
       routes: {
