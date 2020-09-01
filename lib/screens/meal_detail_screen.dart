@@ -18,23 +18,23 @@ class MealDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget buildContainer(Widget child) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.all(10),
-      height: 150,
-      width: 300,
-      child: child,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    Widget buildContainer(Widget child) {
+      return Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor,
+          border: Border.all(color: Colors.red),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(10),
+        height: 150,
+        width: MediaQuery.of(context).size.width - 50,
+        child: child,
+      );
+    }
+
     final mealId = ModalRoute.of(context).settings.arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
@@ -62,14 +62,15 @@ class MealDetailScreen extends StatelessWidget {
             ),
             buildContainer(
               ListView.builder(
-                  itemBuilder: (ctx, index) => Card(
-                      color: Colors.redAccent,
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        child: Text(selectedMeal.ingredients[index]),
-                      )),
-                  itemCount: selectedMeal.ingredients.length),
+                itemBuilder: (ctx, index) => Card(
+                    color: Colors.red,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      child: Text(selectedMeal.ingredients[index]),
+                    )),
+                itemCount: selectedMeal.ingredients.length,
+              ),
             ),
             buildSectionTitle(context, 'Steps'),
             buildContainer(
@@ -78,17 +79,21 @@ class MealDetailScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Colors.redAccent[100],
+                        backgroundColor: Colors.red,
                         child: Text(
                           '#${(index + 1)}',
-                          style: TextStyle(color: Colors.black),
+                          style:
+                              TextStyle(color: Theme.of(context).accentColor),
                         ),
                       ),
                       title: Text(
                         selectedMeal.steps[index],
+                        style: TextStyle(color: Theme.of(context).accentColor),
                       ),
                     ),
-                    Divider(),
+                    Divider(
+                      color: Colors.red,
+                    ),
                   ],
                 ),
                 itemCount: selectedMeal.steps.length,
