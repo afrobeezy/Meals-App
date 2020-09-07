@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import '../screens/categories_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../widgets/main_drawer.dart';
@@ -33,6 +34,7 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           _pages[_selectedPageIndex]['title'],
           style: TextStyle(color: Colors.red),
