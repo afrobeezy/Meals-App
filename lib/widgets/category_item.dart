@@ -42,14 +42,14 @@ class CategoryItem extends StatelessWidget {
             image: NetworkImage(imageURL),
             fit: BoxFit.cover,
           ),
-          // gradient: LinearGradient(
-          //   colors: [
-          //     color.withOpacity(0.7),
-          //     color,
-          //   ],
-          //   begin: Alignment.topLeft,
-          //   end: Alignment.bottomRight,
-          // ),
+          gradient: LinearGradient(
+            colors: [
+              color.withOpacity(0.7),
+              color,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
