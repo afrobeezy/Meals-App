@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import '../screens/categories_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../widgets/main_drawer.dart';

@@ -9,7 +9,7 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (favoriteMeals.isEmpty) {
       return Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(10),
         child: Center(
           child: Text(
             'You have no favorites yet',

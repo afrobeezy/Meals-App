@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../screens/meal_detail_screen.dart';
+import '../widgets/responsive_widget.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -85,7 +86,7 @@ class MealItem extends StatelessWidget {
                   ),
                   child: Image.network(
                     imageURL,
-                    height: 200,
+                    height: ResponsiveWidget.isLargeScreen(context) ? 300 : 200,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -110,7 +111,7 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Row(children: <Widget>[
                     Icon(Icons.schedule),
