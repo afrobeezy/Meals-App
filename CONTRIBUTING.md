@@ -1,6 +1,6 @@
 ## Contributing
 
-If you would like to contribute to Muze, please start a discussion by [submitting an issue](https://github.com/urmilshroff/muze/issues/new/choose) first. It helps me understand your proposal and discuss wether it is necessary or not.
+If you would like to contribute to Meals App, please start a discussion by [submitting an issue](https://github.com/michaeldadzie/Meals-App/issues/new) first. It helps me understand your proposal and discuss wether it is necessary or not.
 
 Alternatively, you can help by resolving any of the already [open issues](https://github.com/michaeldadzie/Meals-App/issues).
 
