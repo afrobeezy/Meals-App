@@ -2,7 +2,6 @@
 ## About
 
 A Bible, but for meals.
-- **Before creating any Pull Request, please register yourself at [Hacktoberfest's Official Website](https://hacktoberfest.digitalocean.com/)**
 
 # Screenshots
 |  | |  |
