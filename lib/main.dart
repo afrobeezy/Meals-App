@@ -7,8 +7,16 @@ import './screens/tabs_screen.dart';
 import 'screens/categories_screen.dart';
 import './models/meal.dart';
 import 'package:mealsapp/utils/const.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // status bar color
+    ),
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -70,6 +78,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Meal Bible',
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
