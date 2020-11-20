@@ -30,7 +30,7 @@ class MealDetailScreen extends StatelessWidget {
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(10),
         height: 150,
-        width: MediaQuery.of(context).size.width - 50,
+        width: MediaQuery.of(context).size.width - 30,
         child: child,
       );
     }
@@ -46,6 +46,7 @@ class MealDetailScreen extends StatelessWidget {
         iconTheme: new IconThemeData(color: Colors.red),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         child: Column(
           children: <Widget>[
             Container(
