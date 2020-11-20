@@ -12,7 +12,7 @@ class FavoriteScreen extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Center(
           child: Text(
-            'You have no favorites yet',
+            'You have no favorites',
             style: Theme.of(context).textTheme.title,
           ),
         ),
