@@ -3,6 +3,7 @@ import '../screens/categories_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../widgets/main_drawer.dart';
 import '../models/meal.dart';
+import '../widgets/menu_button.dart';
 
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
@@ -17,7 +18,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   void initState() {
     _pages = [
-      {'page': CategoriesScreen(), 'title': 'Categories'},
+      {'page': CategoriesScreen(), 'title': ''},
       {'page': FavoriteScreen(widget.favoriteMeals), 'title': 'Your Favorites'},
     ];
     super.initState();
@@ -29,11 +30,22 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: menuButton,
+            onPressed: () => scaffoldKey.currentState.openDrawer(),
+          ),
+        ),
+        centerTitle: false,
         title: Text(
           _pages[_selectedPageIndex]['title'],
           style: TextStyle(color: Colors.red),
@@ -42,6 +54,7 @@ class _TabsScreenState extends State<TabsScreen> {
         iconTheme: new IconThemeData(color: Colors.red),
         elevation: 0.0,
       ),
+      key: scaffoldKey,
       drawer: Drawer(
         child: MainDrawer(),
       ),

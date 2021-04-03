@@ -6,7 +6,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+      // physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       padding: const EdgeInsets.all(25),
       children: DUMMY_CATEGORIES
           .map(

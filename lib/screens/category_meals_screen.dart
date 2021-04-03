@@ -51,6 +51,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       appBar: AppBar(
         title: Text(categoryTitle, style: TextStyle(color: Colors.red)),
         iconTheme: new IconThemeData(color: Colors.red),
+        elevation: 0,
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
