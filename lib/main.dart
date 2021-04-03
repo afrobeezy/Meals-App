@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent, // status bar color
+      statusBarColor: Colors.transparent,
     ),
   );
   runApp(MyApp());
@@ -82,7 +82,6 @@ class _MyAppState extends State<MyApp> {
       title: 'Meal Bible',
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
-//      home: CategoriesScreen(),
       initialRoute: '/',
       routes: {
         '/': (ctx) => TabsScreen(_favoriteMeals),
@@ -95,7 +94,6 @@ class _MyAppState extends State<MyApp> {
       // ignore: missing_return
       onGenerateRoute: (settings) {
         print(settings.arguments);
-//        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
