@@ -18,10 +18,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
   assets:
-    - assets/
+    - assets/fonts/
+    - assets/images/
 
   fonts:
     - family: Raleway
@@ -40,9 +40,3 @@ flutter:
           weight: 300
         - asset: assets/fonts/RobotoCondensed-Italic.ttf
           weight: 300
-
-
-
-
-
-
