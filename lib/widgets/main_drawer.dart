@@ -33,8 +33,7 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                    'https://foodphotography.pk/wp-content/uploads/2018/01/23244.jpg'),
+                image: AssetImage('assets/images/mb.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
