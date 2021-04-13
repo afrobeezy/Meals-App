@@ -17,6 +17,10 @@ class Constants {
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
     accentColor: lightAccent,
+    cursorColor: lightAccent,
+    scaffoldBackgroundColor: lightBG,
+    focusColor: darkPrimary,
+    hoverColor: darkBG,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CustomPageTransitionBuilder(),
@@ -24,15 +28,13 @@ class Constants {
         TargetPlatform.windows: CustomPageTransitionBuilder(),
       },
     ),
-    cursorColor: lightAccent,
-    scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(
-          color: Colors.red,
-          fontSize: 20,
-          fontFamily: 'RaleWay',
-        ),
+            color: Colors.red,
+            fontSize: 20,
+            fontFamily: 'RaleWay',
+            fontWeight: FontWeight.bold),
       ),
     ),
     textTheme: ThemeData.light().textTheme.copyWith(
@@ -58,6 +60,10 @@ class Constants {
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
     accentColor: darkAccent,
+    scaffoldBackgroundColor: darkBG,
+    cursorColor: darkAccent,
+    focusColor: lightPrimary,
+    hoverColor: lightBG,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CustomPageTransitionBuilder(),
@@ -65,15 +71,13 @@ class Constants {
         TargetPlatform.windows: CustomPageTransitionBuilder(),
       },
     ),
-    scaffoldBackgroundColor: darkBG,
-    cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(
-          color: Colors.red,
-          fontFamily: 'RaleWay',
-          fontSize: 20,
-        ),
+            color: Colors.red,
+            fontFamily: 'RaleWay',
+            fontSize: 20,
+            fontWeight: FontWeight.bold),
       ),
     ),
     textTheme: ThemeData.light().textTheme.copyWith(
