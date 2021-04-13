@@ -1,4 +1,12 @@
+import 'dart:io';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:mealsapp/models/user_model.dart';
+import 'package:mealsapp/screens/login_screen.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import './data/dummy_data.dart';
 import './screens/category_meals_screen.dart';
 import './screens/filters_screen.dart';
@@ -9,16 +17,31 @@ import './models/meal.dart';
 import 'package:mealsapp/utils/const.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ),
   );
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  final Box<UserModel> _userBox = await _hiveSetup();
+  runApp(MyApp(
+    userBox: _userBox,
+  ));
+}
+
+Future<Box<UserModel>> _hiveSetup() async {
+  Directory document = await getApplicationDocumentsDirectory();
+  Hive.init(document.path);
+  Hive.registerAdapter(UserModelAdapter());
+  final Box<UserModel> _userBox = await Hive.openBox<UserModel>('userModel');
+  return _userBox;
 }
 
 class MyApp extends StatefulWidget {
+  final Box<UserModel> userBox;
+  MyApp({this.userBox});
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -77,27 +100,36 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Meal Bible',
-      theme: Constants.lightTheme,
-      darkTheme: Constants.darkTheme,
-      initialRoute: '/',
-      routes: {
-        '/': (ctx) => TabsScreen(_favoriteMeals),
-        CategoryMealsScreen.routeName: (ctx) =>
-            CategoryMealsScreen(_availableMeals),
-        MealDetailScreen.routeName: (ctx) =>
-            MealDetailScreen(_toggleFavorite, isMealFavorite),
-        FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
-      },
-      // ignore: missing_return
-      onGenerateRoute: (settings) {
-        print(settings.arguments);
-      },
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
-      },
+    return Provider<Box<UserModel>>(
+      create: (context) => widget.userBox,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Meal Bible',
+        theme: Constants.lightTheme,
+        darkTheme: Constants.darkTheme,
+        // home: LoginScreen(),
+        initialRoute: widget.userBox.isEmpty
+            ? LoginScreen.routeName
+            : TabsScreen.routeName,
+        routes: {
+          TabsScreen.routeName: (ctx) => TabsScreen(_favoriteMeals),
+          CategoryMealsScreen.routeName: (ctx) =>
+              CategoryMealsScreen(_availableMeals),
+          MealDetailScreen.routeName: (ctx) =>
+              MealDetailScreen(_toggleFavorite, isMealFavorite),
+          FiltersScreen.routeName: (ctx) =>
+              FiltersScreen(_filters, _setFilters),
+          LoginScreen.routeName: (ctx) => LoginScreen(),
+        },
+        // ignore: missing_return
+        onGenerateRoute: (settings) {
+          print(settings.arguments);
+        },
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(
+              builder: (ctx) => TabsScreen(_favoriteMeals));
+        },
+      ),
     );
   }
 }
