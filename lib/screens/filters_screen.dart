@@ -49,15 +49,40 @@ class _FiltersScreenState extends State<FiltersScreen> {
     );
   }
 
+  Widget get menuButton {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(height: 3, width: 24, color: Theme.of(context).hoverColor),
+          SizedBox(height: 5),
+          Container(height: 3, width: 12, color: Theme.of(context).hoverColor),
+        ],
+      ),
+    );
+  }
+
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          iconTheme: new IconThemeData(color: Colors.red),
+          iconTheme: new IconThemeData(color: Theme.of(context).hoverColor),
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              icon: menuButton,
+              onPressed: () => scaffoldKey.currentState.openDrawer(),
+            ),
+          ),
           title: Text(
             'Filters',
-            style: TextStyle(color: Colors.red),
+            style: TextStyle(color: Theme.of(context).hoverColor),
           ),
           actions: <Widget>[
             IconButton(
@@ -74,16 +99,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
             ),
           ],
         ),
+        key: scaffoldKey,
         drawer: MainDrawer(),
         body: Column(
           children: <Widget>[
-            // Container(
-            //   padding: EdgeInsets.all(20),
-            //   child: Text(
-            //     'Adjust your meal selection',
-            //     style: Theme.of(context).textTheme.title,
-            //   ),
-            // ),
             Expanded(
               child: ListView(
                 children: <Widget>[
