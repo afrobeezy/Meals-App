@@ -4,16 +4,27 @@ description: A Bible but for meals.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.5.2 <3.0.0"
 
 dependencies:
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
   flutter_icons: ^1.1.0
+  path_provider: ^1.6.18
+  firebase_auth: ^0.18.0+1
+  flutter_screenutil: ^3.2.0
+  firebase_core: ^0.5.0
+  google_sign_in: ^4.5.4
+  cached_network_image: ^2.3.2+1
+  provider: ^4.3.2+2
   flutter:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  hive_generator: ^0.8.2
+  build_runner: ^1.10.6
   flutter_test:
     sdk: flutter
 
