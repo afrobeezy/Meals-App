@@ -31,27 +31,47 @@ class CategoryItem extends StatelessWidget {
       onTap: () => selectCategory(context),
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.subtitle,
-        ),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(imageURL),
-            fit: BoxFit.cover,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Theme.of(context).hintColor,
+            ),
+            height: 220,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 150,
+                  margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(imageURL),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          gradient: LinearGradient(
-            colors: [
-              color.withOpacity(0.7),
-              color,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(15),
-        ),
+          SizedBox(height: 10)
+        ],
       ),
     );
   }
