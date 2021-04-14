@@ -49,11 +49,13 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle, style: TextStyle(color: Colors.red)),
-        iconTheme: new IconThemeData(color: Colors.red),
+        title: Text(categoryTitle,
+            style: TextStyle(color: Theme.of(context).focusColor)),
+        iconTheme: new IconThemeData(color: Theme.of(context).focusColor),
         elevation: 0,
       ),
       body: ListView.builder(
+        padding: EdgeInsets.only(left: 15, right: 15),
         itemBuilder: (ctx, index) {
           return MealItem(
             id: displayedMeals[index].id,
