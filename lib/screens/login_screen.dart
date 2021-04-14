@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -35,90 +34,118 @@ class LoginScreen extends StatelessWidget {
       allowFontScaling: true,
     );
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 481.h,
-              width: 452.h,
-              child: Image.asset('assets/images/chef.png'),
-            ),
-            SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.only(left: 25.h, right: 25.h),
-              child: Text(
-                '1K + LOCAL RECIPES',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w300),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.only(left: 25.h, right: 25.h),
-              child: Text(
-                'It\'s\nCooking\nTime!',
-                style: TextStyle(
-                    color: Theme.of(context).canvasColor,
-                    fontSize: 45,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.only(left: 25.h, right: 25.h),
-              child: ElevatedButton(
-                onPressed: () async {
-                  try {
-                    User _firebaseUser =
-                        await FirebaseAuthHelper().signInWithGoogle();
-                    _saveUserToHive(_firebaseUser, _userBox);
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      '/',
-                      (Route<dynamic> route) => false,
-                    );
-                  } catch (error) {
-                    print('Error: $error');
-                  }
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      FlutterIcons.google_ant,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 10.h,
-                    ),
-                    Text(
-                      'Sign Up',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300),
-                    ),
-                  ],
+      body: Stack(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  "assets/images/exotic.jpeg",
                 ),
-                style: ButtonStyle(
-                  enableFeedback: true,
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black45,
+                  BlendMode.darken,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 40.h,
+            left: 40.h,
+            right: 40.h,
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    try {
+                      User _firebaseUser =
+                          await FirebaseAuthHelper().signInWithGoogle();
+                      _saveUserToHive(_firebaseUser, _userBox);
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/',
+                        (Route<dynamic> route) => false,
+                      );
+                    } catch (error) {
+                      print('Error: $error');
+                    }
+                  },
+                  child: Text(
+                    'Sign in with Google',
+                    style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                       EdgeInsets.only(
-                          left: 30.h, right: 30.h, top: 20.h, bottom: 20.h)),
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0.h),
+                        left: 30.h,
+                        right: 30.h,
+                        top: 20.h,
+                        bottom: 20.h,
+                      ),
+                    ),
+                    elevation: MaterialStateProperty.all(0),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.red),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.h),
+                      ),
                     ),
                   ),
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Positioned(
+            bottom: 160.h,
+            left: 40.h,
+            right: 40.h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Meal Bible !',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 23.h,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 40.h),
+                Text(
+                  'Get over a hundred beautiful and',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 18.h,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey[200],
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Text(
+                  'delicious recipes in Ghana',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 18.h,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey[200],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
