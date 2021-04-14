@@ -21,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {'page': CategoriesScreen(), 'title': ''},
-      {'page': FavoriteScreen(widget.favoriteMeals), 'title': 'Your Favorites'},
+      {'page': FavoriteScreen(widget.favoriteMeals), 'title': 'My Favorites'},
       {'page': ProfileScreen(), 'title': ''},
     ];
     super.initState();
@@ -65,7 +65,7 @@ class _TabsScreenState extends State<TabsScreen> {
         centerTitle: false,
         title: Text(
           _pages[_selectedPageIndex]['title'],
-          style: TextStyle(color: Colors.red),
+          style: TextStyle(color: Theme.of(context).focusColor),
         ),
         backgroundColor: Theme.of(context).primaryColor,
         iconTheme: new IconThemeData(color: Colors.red),
@@ -94,7 +94,7 @@ class _TabsScreenState extends State<TabsScreen> {
           items: [
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: Icon(FlutterIcons.home_ent),
+                icon: Icon(FlutterIcons.restaurant_mdi),
                 label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
