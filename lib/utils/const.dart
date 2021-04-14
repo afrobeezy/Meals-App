@@ -12,6 +12,8 @@ class Constants {
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Colors.black;
   static Color badgeColor = Colors.red;
+  static Color catlightColor = Colors.grey[100];
+  static Color catdarkColor = Colors.grey[900];
 
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
@@ -21,6 +23,8 @@ class Constants {
     scaffoldBackgroundColor: lightBG,
     focusColor: darkPrimary,
     hoverColor: darkBG,
+    hintColor: catlightColor,
+    highlightColor: lightBG,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CustomPageTransitionBuilder(),
@@ -64,6 +68,8 @@ class Constants {
     cursorColor: darkAccent,
     focusColor: lightPrimary,
     hoverColor: lightBG,
+    hintColor: catdarkColor,
+    highlightColor: darkBG,
     pageTransitionsTheme: PageTransitionsTheme(
       builders: {
         TargetPlatform.android: CustomPageTransitionBuilder(),
