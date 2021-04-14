@@ -59,9 +59,7 @@ class MealItem extends StatelessWidget {
       arguments: id,
     )
         .then((result) {
-      if (result != null) {
-//        removeItem(result);
-      }
+      if (result != null) {}
     });
   }
 
@@ -69,71 +67,172 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => selectMeal(context),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        elevation: 4,
-        margin: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                  child: Image.network(
-                    imageURL,
-                    height: ResponsiveWidget.isLargeScreen(context) ? 300 : 200,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  bottom: 20,
-                  right: 0,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Theme.of(context).highlightColor,
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Colors.grey.withOpacity(0.5),
+              //     spreadRadius: 1,
+              //     blurRadius: 6,
+              //     offset: Offset(0, 1),
+              //   )
+              // ],
+            ),
+            height: 130,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
                   child: Container(
-                    width: 300,
-                    color: Colors.black54,
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    child: Text(
-                      title,
-                      style: TextStyle(fontSize: 26, color: Colors.white),
-                      softWrap: true,
-                      overflow: TextOverflow.fade,
+                    height: 130,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(imageURL),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                )
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).focusColor,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Theme.of(context).hintColor),
+                              child: Icon(Icons.schedule),
+                            ),
+                            Text(
+                              '$duration min',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            Container(
+                              height: 30,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Theme.of(context).hintColor),
+                              child: Icon(Icons.work),
+                            ),
+                            Text(
+                              complexityText,
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            // Container(
+                            //   height: 30,
+                            //   width: 30,
+                            //   decoration: BoxDecoration(
+                            //       borderRadius: BorderRadius.circular(5),
+                            //       color: Colors.green[100]),
+                            //   child: Icon(Icons.attach_money),
+                            // ),
+                            // Text(affordabilityText),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Row(children: <Widget>[
-                    Icon(Icons.schedule),
-                    SizedBox(width: 6),
-                    Text('$duration min'),
-                  ]),
-                  Row(children: <Widget>[
-                    Icon(Icons.work),
-                    SizedBox(width: 6),
-                    Text(complexityText),
-                  ]),
-                  Row(children: <Widget>[
-                    Icon(Icons.attach_money),
-                    SizedBox(width: 6),
-                    Text(affordabilityText),
-                  ]),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+          Divider(
+            color: Colors.grey[700],
+          ),
+        ],
       ),
+
+      // child: Card(
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(15),
+      //   ),
+      //   elevation: 4,
+      //   margin: EdgeInsets.all(10),
+      //   child: Column(
+      //     children: <Widget>[
+      //       Stack(
+      //         children: <Widget>[
+      //           ClipRRect(
+      //             borderRadius: BorderRadius.only(
+      //               topLeft: Radius.circular(15),
+      //               topRight: Radius.circular(15),
+      //             ),
+      //             child: Image.network(
+      //               imageURL,
+      //               height: ResponsiveWidget.isLargeScreen(context) ? 300 : 200,
+      //               width: double.infinity,
+      //               fit: BoxFit.cover,
+      //             ),
+      //           ),
+      //           Positioned(
+      //             bottom: 20,
+      //             right: 0,
+      //             child: Container(
+      //               width: 300,
+      //               color: Colors.black54,
+      //               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      //               child: Text(
+      //                 title,
+      //                 style: TextStyle(fontSize: 26, color: Colors.white),
+      //                 softWrap: true,
+      //                 overflow: TextOverflow.fade,
+      //               ),
+      //             ),
+      //           )
+      //         ],
+      //       ),
+      //       Padding(
+      //         padding: EdgeInsets.all(20),
+      //         child: Row(
+      //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //           children: <Widget>[
+      //             Row(children: <Widget>[
+      //               Icon(Icons.schedule),
+      //               SizedBox(width: 6),
+      //               Text('$duration min'),
+      //             ]),
+      //             Row(children: <Widget>[
+      //               Icon(Icons.work),
+      //               SizedBox(width: 6),
+      //               Text(complexityText),
+      //             ]),
+      //             Row(children: <Widget>[
+      //               Icon(Icons.attach_money),
+      //               SizedBox(width: 6),
+      //               Text(affordabilityText),
+      //             ]),
+      //           ],
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
