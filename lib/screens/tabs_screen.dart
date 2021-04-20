@@ -20,9 +20,9 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   void initState() {
     _pages = [
-      {'page': CategoriesScreen(), 'title': ''},
-      {'page': FavoriteScreen(widget.favoriteMeals), 'title': 'My Favorites'},
-      {'page': ProfileScreen(), 'title': ''},
+      {'page': CategoriesScreen()},
+      {'page': FavoriteScreen(widget.favoriteMeals)},
+      {'page': ProfileScreen()},
     ];
     super.initState();
   }
@@ -52,29 +52,10 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: menuButton,
-            onPressed: () => scaffoldKey.currentState.openDrawer(),
-          ),
-        ),
-        centerTitle: false,
-        title: Text(
-          _pages[_selectedPageIndex]['title'],
-          style: TextStyle(color: Theme.of(context).focusColor),
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
-        iconTheme: new IconThemeData(color: Colors.red),
-        elevation: 0.0,
-      ),
-      key: scaffoldKey,
-      drawer: Drawer(
-        child: MainDrawer(),
-      ),
+      // key: scaffoldKey,
+      // drawer: Drawer(
+      //   child: MainDrawer(),
+      // ),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: Theme(
         data: ThemeData(
