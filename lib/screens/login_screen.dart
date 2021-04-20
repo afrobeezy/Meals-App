@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mealsapp/screens/setup_user_profile.dart';
 import 'package:hive/hive.dart';
 import 'package:mealsapp/models/user_model.dart';
 import 'package:mealsapp/services/firebase_auth_helper.dart';
@@ -67,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                       _saveUserToHive(_firebaseUser, _userBox);
                       Navigator.pushNamedAndRemoveUntil(
                         context,
-                        '/',
+                        SetupUserProfile.routeName,
                         (Route<dynamic> route) => false,
                       );
                     } catch (error) {
