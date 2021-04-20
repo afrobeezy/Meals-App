@@ -17,6 +17,10 @@ dependencies:
   google_sign_in: ^4.5.4
   cached_network_image: ^2.3.2+1
   provider: ^4.3.2+2
+  cloud_firestore: ^0.14.3
+  image_picker: ^0.6.7+14
+  country_code_picker: ^1.6.2
+  intl: ^0.16.0
   flutter:
     sdk: flutter
 
@@ -33,6 +37,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/load/
 
   fonts:
     - family: Raleway
