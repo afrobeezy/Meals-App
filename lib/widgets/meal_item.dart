@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../screens/meal_detail_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../widgets/responsive_widget.dart';
 
 class MealItem extends StatelessWidget {
@@ -13,12 +14,12 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   MealItem(
-      {@required this.id,
-      @required this.title,
-      @required this.imageURL,
-      @required this.duration,
-      @required this.complexity,
-      @required this.affordability});
+      {this.id,
+      this.title,
+      this.imageURL,
+      this.duration,
+      this.complexity,
+      this.affordability});
 
   String get complexityText {
     switch (complexity) {
@@ -52,7 +53,32 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  // void selectMeal(BuildContext context) {
+  //   Navigator.of(context).pushNamed(
+  //     MealDetailScreen.routeName,
+  //     arguments: {
+  //       id,
+  //     },
+  //   ).then((result) {
+  //     if (result != null) {}
+  //   });
+  //   Navigator.pushNamed(
+  //     context,
+  //     'meal-detail',
+  //     arguments: {
+  //       'id': id,
+  //     },
+  //   );
+  // }
+
   void selectMeal(BuildContext context) {
+    // Navigator.pushNamed(
+    //   context,
+    //   'meal-detail',
+    //   arguments: {
+    //     id,
+    //   },
+    // )
     Navigator.of(context)
         .pushNamed(
       MealDetailScreen.routeName,
@@ -91,7 +117,7 @@ class MealItem extends StatelessWidget {
                     height: 130,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(imageURL),
+                        image: CachedNetworkImageProvider(imageURL),
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.circular(15),

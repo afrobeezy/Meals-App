@@ -98,149 +98,152 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: MainDrawer(),
       ),
       body: SafeArea(
-        child: _loading
-            ? Center(child: CustomCircularProgressIndicator())
-            : SingleChildScrollView(
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            child: RichText(
-                              text: TextSpan(
-                                text: 'Hello, ',
-                                style: TextStyle(
-                                    fontFamily: 'Raleway',
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w400,
-                                    color: Theme.of(context).hoverColor),
-                                children: [
-                                  TextSpan(
-                                    text: _userInfoModel.fname,
-                                    style: TextStyle(
-                                      fontFamily: 'Raleway',
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold,
-                                      color: Theme.of(context).hoverColor,
-                                    ),
-                                  ),
-                                ],
+        child:
+            _loading
+                ? Center(child: CustomCircularProgressIndicator())
+                :
+            SingleChildScrollView(
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Hello, ',
+                          style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 30,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).hoverColor),
+                          children: [
+                            TextSpan(
+                              text: _userInfoModel.fname,
+                              style: TextStyle(
+                                fontFamily: 'Raleway',
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).hoverColor,
                               ),
-                              textAlign: TextAlign.start,
                             ),
-                          ),
+                          ],
                         ),
+                        textAlign: TextAlign.start,
                       ),
-                      SizedBox(height: 10),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            child: Text(
-                              'What would you like to cook today ?',
-                              style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Theme.of(context).hoverColor),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            child: Text(
-                              'Today\'s recipe',
-                              style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).hoverColor),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 230,
-                        child: GridView.builder(
-                          scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(
-                              parent: AlwaysScrollableScrollPhysics()),
-                          padding: const EdgeInsets.all(20),
-                          gridDelegate:
-                              SliverGridDelegateWithMaxCrossAxisExtent(
-                            childAspectRatio: 3 / 2.2,
-                            maxCrossAxisExtent: 200,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                          ),
-                          itemCount: mealList != null ? mealList.length : 0,
-                          itemBuilder: (context, index) {
-                            return TodayMealsItem(
-                              imageUrl: mealList[index].imageUrl ?? "",
-                              title: mealList[index].title ?? "",
-                              complexity: mealList[index].complexity ?? "",
-                              ingredients: mealList[index].ingredients ?? "",
-                            );
-                          },
-                        ),
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            child: Text(
-                              'Categories',
-                              style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).hoverColor),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 935,
-                        child: ListView(
-                          padding: const EdgeInsets.all(20),
-                          physics: NeverScrollableScrollPhysics(),
-                          children: DUMMY_CATEGORIES
-                              .map(
-                                (catData) => CategoryItem(
-                                  catData.id,
-                                  catData.title,
-                                  catData.color,
-                                  catData.imageURL,
-                                ),
-                              )
-                              .toList(),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(16.0),
+                SizedBox(height: 10),
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      child: Text(
+                        'What would you like to cook today ?',
+                        style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).hoverColor),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      child: Text(
+                        'Today\'s recipe',
+                        style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).hoverColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 230,
+                  child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    physics: BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    padding: const EdgeInsets.all(20),
+                    gridDelegate:
+                        SliverGridDelegateWithMaxCrossAxisExtent(
+                      childAspectRatio: 3 / 2.2,
+                      maxCrossAxisExtent: 200,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemCount: mealList != null ? mealList.length : 0,
+                    itemBuilder: (context, index) {
+                      return TodayMealsItem(
+                        imageUrl: mealList[index].imageUrl ?? "",
+                        title: mealList[index].title ?? "",
+                        complexity: mealList[index].complexity ?? "",
+                        ingredients: mealList[index].ingredients ?? "",
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Container(
+                      child: Text(
+                        'Categories',
+                        style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).hoverColor),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 935,
+                  child: ListView(
+                    padding: const EdgeInsets.all(20),
+                    physics: NeverScrollableScrollPhysics(),
+                    children: DUMMY_CATEGORIES
+                        .map(
+                          (catData) => CategoryItem(
+                            catData.id,
+                            catData.title,
+                            catData.color,
+                            catData.imageURL,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        splashColor: Colors.transparent,
-        elevation: 0,
-        child: Icon(FlutterIcons.sliders_fea),
-        backgroundColor: Theme.of(context).focusColor,
-        onPressed: () {},
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: FloatingActionButton(
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.all(
+      //       Radius.circular(16.0),
+      //     ),
+      //   ),
+      //   splashColor: Colors.transparent,
+      //   hoverColor: Colors.transparent,
+      //   elevation: 0,
+      //   child: Icon(FlutterIcons.sliders_fea),
+      //   backgroundColor: Theme.of(context).focusColor,
+      //   onPressed: () {},
+      // ),
     );
   }
 }

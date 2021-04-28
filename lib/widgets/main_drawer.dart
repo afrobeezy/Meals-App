@@ -6,19 +6,27 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget buildListTile(String title, IconData icon, Function tapHandler) {
       return ListTile(
-        trailing: Icon(
-          icon,
-          size: 26,
-          color: Colors.red,
+        trailing: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).hintColor,
+          ),
+          height: 40,
+          width: 40,
+          child: Icon(
+            icon,
+            size: 26,
+            color: Theme.of(context).focusColor,
+          ),
         ),
-        title: (Text(
+        title: Text(
           title,
           style: TextStyle(
               fontSize: 20,
               fontFamily: 'RaleWay',
               fontWeight: FontWeight.bold,
               color: Theme.of(context).accentColor),
-        )),
+        ),
         onTap: tapHandler,
       );
     }

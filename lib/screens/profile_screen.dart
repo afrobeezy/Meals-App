@@ -81,10 +81,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Text(
                         _userModel.emailId,
                         style: TextStyle(
-                            fontFamily: 'Raleway',
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey[600]),
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[600],
+                        ),
                       ),
                     ],
                   ),
@@ -114,7 +115,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 25),
               CustomListTile(
                 name: 'Help',
-                icon: Icons.help_outlined,
+                icon: Icons.help_outline,
               ),
             ],
           ),

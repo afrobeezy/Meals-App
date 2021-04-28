@@ -20,6 +20,7 @@ dependencies:
   cloud_firestore: ^0.14.3
   image_picker: ^0.6.7+14
   country_code_picker: ^1.6.2
+  page_transition: ^1.1.7+6
   intl: ^0.16.0
   flutter:
     sdk: flutter

@@ -25,13 +25,13 @@ class Constants {
     hoverColor: darkBG,
     hintColor: catlightColor,
     highlightColor: lightBG,
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: {
-        TargetPlatform.android: CustomPageTransitionBuilder(),
-        TargetPlatform.iOS: CustomPageTransitionBuilder(),
-        TargetPlatform.windows: CustomPageTransitionBuilder(),
-      },
-    ),
+    // pageTransitionsTheme: PageTransitionsTheme(
+    //   builders: {
+    //     TargetPlatform.android: CustomPageTransitionBuilder(),
+    //     TargetPlatform.iOS: CustomPageTransitionBuilder(),
+    //     TargetPlatform.windows: CustomPageTransitionBuilder(),
+    //   },
+    // ),
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(
@@ -70,13 +70,13 @@ class Constants {
     hoverColor: lightBG,
     hintColor: catdarkColor,
     highlightColor: darkBG,
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: {
-        TargetPlatform.android: CustomPageTransitionBuilder(),
-        TargetPlatform.iOS: CustomPageTransitionBuilder(),
-        TargetPlatform.windows: CustomPageTransitionBuilder(),
-      },
-    ),
+    // pageTransitionsTheme: PageTransitionsTheme(
+    //   builders: {
+    //     TargetPlatform.android: CustomPageTransitionBuilder(),
+    //     TargetPlatform.iOS: CustomPageTransitionBuilder(),
+    //     TargetPlatform.windows: CustomPageTransitionBuilder(),
+    //   },
+    // ),
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(

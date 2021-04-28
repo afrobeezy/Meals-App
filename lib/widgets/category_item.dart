@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../screens/category_meals_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -15,14 +16,22 @@ class CategoryItem extends StatelessWidget {
     this.imageURL,
   );
 
-  void selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(
-      CategoryMealsScreen.routeName,
+  void selectCategory(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      'category-meals',
       arguments: {
         'id': id,
         'title': title,
       },
     );
+    //   Navigator.of(context).pushNamed(
+    //     CategoryMealsScreen.routeName,
+    //     arguments: {
+    //       'id': id,
+    //       'title': title,
+    //     },
+    //   );
   }
 
   @override
@@ -47,7 +56,7 @@ class CategoryItem extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(imageURL),
+                      image: CachedNetworkImageProvider(imageURL),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(15),
