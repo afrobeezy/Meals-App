@@ -19,6 +19,7 @@ class SetupUserProfile extends StatefulWidget {
 class _SetupUserProfileState extends State<SetupUserProfile> {
   final firestoreInstance = FirebaseFirestore.instance;
   File _image;
+  bool _validate = false;
   DateTime selectedDate = DateTime.now();
   final fname = TextEditingController();
   final lname = TextEditingController();
@@ -212,6 +213,13 @@ class _SetupUserProfileState extends State<SetupUserProfile> {
                         color: Theme.of(context).focusColor,
                       ),
                       decoration: InputDecoration(
+                        errorText: _validate ? 'Value can\'t be empty' : null,
+                        errorStyle: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.red,
+                        ),
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                           fontFamily: 'Raleway',
@@ -239,6 +247,13 @@ class _SetupUserProfileState extends State<SetupUserProfile> {
                         color: Theme.of(context).focusColor,
                       ),
                       decoration: InputDecoration(
+                        errorText: _validate ? 'Value can\'t be empty' : null,
+                        errorStyle: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.red,
+                        ),
                         border: InputBorder.none,
                         hintStyle: TextStyle(
                           fontFamily: 'Raleway',
@@ -288,6 +303,15 @@ class _SetupUserProfileState extends State<SetupUserProfile> {
                                     fontWeight: FontWeight.bold,
                                     color: Theme.of(context).focusColor),
                                 decoration: InputDecoration(
+                                  errorText: _validate
+                                      ? 'Value can\'t be empty'
+                                      : null,
+                                  errorStyle: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.red,
+                                  ),
                                   border: InputBorder.none,
                                   hintStyle: TextStyle(
                                     fontFamily: 'Raleway',
@@ -424,6 +448,11 @@ class _SetupUserProfileState extends State<SetupUserProfile> {
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                         onPressed: () {
+                          setState(() {
+                            fname.text.isEmpty && lname.text.isEmpty
+                                ? _validate = true
+                                : _validate = false;
+                          });
                           //alert users to fill every field
                           _saveUserInfoToHive(_userInfoBox);
                           firestoreInstance.collection("users").add({
