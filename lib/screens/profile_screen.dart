@@ -4,6 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:mealsapp/models/user_info_model.dart';
 import 'package:mealsapp/models/user_model.dart';
 import 'package:mealsapp/widgets/main_drawer.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:mealsapp/screens/settings_screen.dart';
+import 'package:mealsapp/screens/about_screen.dart';
+import 'package:mealsapp/screens/help_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -104,16 +108,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               SizedBox(height: 40),
               CustomListTile(
+                tap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => SettingsScreen(),
+                    ),
+                  );
+                },
                 name: 'Settings',
                 icon: Icons.settings_outlined,
               ),
               SizedBox(height: 25),
               CustomListTile(
+                tap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => AboutScreen(),
+                    ),
+                  );
+                },
                 name: 'About',
                 icon: Icons.info_outlined,
               ),
               SizedBox(height: 25),
               CustomListTile(
+                tap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => HelpScreen(),
+                    ),
+                  );
+                },
                 name: 'Help',
                 icon: Icons.help_outline,
               ),
@@ -128,16 +156,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class CustomListTile extends StatelessWidget {
   final String name;
   final IconData icon;
+  final Function tap;
   const CustomListTile({
     @required this.name,
     @required this.icon,
+    @required this.tap,
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: tap,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
