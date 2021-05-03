@@ -35,7 +35,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
     Function updateValue,
   ) {
     return SwitchListTile(
-      activeColor: Colors.red,
+      activeColor: Colors.white,
+      activeTrackColor: Colors.red,
       title: Text(
         title,
         style: Theme.of(context).textTheme.title,
@@ -68,76 +69,122 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          iconTheme: new IconThemeData(color: Theme.of(context).hoverColor),
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              icon: menuButton,
-              onPressed: () => scaffoldKey.currentState.openDrawer(),
-            ),
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: new IconThemeData(color: Theme.of(context).hoverColor),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: menuButton,
+            onPressed: () => scaffoldKey.currentState.openDrawer(),
           ),
-          title: Text(
-            'Filters',
-            style: TextStyle(color: Theme.of(context).hoverColor),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.save),
-              onPressed: () {
-                final selectedFilters = {
-                  'gluten': _glutenFree,
-                  'lactose': _lactoseFree,
-                  'vegan': _vegan,
-                  'vegetarian': _vegetarian,
-                };
-                widget.saveFilters(selectedFilters);
-              },
-            ),
-          ],
         ),
-        key: scaffoldKey,
-        drawer: MainDrawer(),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  _buildSwitchListTile(
-                      'Gluten-Free',
-                      'Only include gluten-free meals',
-                      _glutenFree, (newValue) {
-                    setState(() {
-                      _glutenFree = newValue;
-                    });
-                  }),
-                  _buildSwitchListTile(
-                      'Lactose-Free',
-                      'Only include lactose-free meals',
-                      _lactoseFree, (newValue) {
-                    setState(() {
-                      _lactoseFree = newValue;
-                    });
-                  }),
-                  _buildSwitchListTile('Vegetarian',
-                      'Only include Vegetarian meals', _vegetarian, (newValue) {
-                    setState(() {
-                      _vegetarian = newValue;
-                    });
-                  }),
-                  _buildSwitchListTile(
-                      'Vegan', 'Only include Vegan meals', _vegan, (newValue) {
-                    setState(() {
-                      _vegan = newValue;
-                    });
-                  }),
-                ],
+        title: Text(
+          'Filters',
+          style: TextStyle(color: Theme.of(context).hoverColor),
+        ),
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: Icon(Icons.save),
+        //     onPressed: () {
+        //       final selectedFilters = {
+        //         'gluten': _glutenFree,
+        //         'lactose': _lactoseFree,
+        //         'vegan': _vegan,
+        //         'vegetarian': _vegetarian,
+        //       };
+        //       widget.saveFilters(selectedFilters);
+        //     },
+        //   ),
+        // ],
+      ),
+      key: scaffoldKey,
+      drawer: MainDrawer(),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView(
+              physics: NeverScrollableScrollPhysics(),
+              children: <Widget>[
+                _buildSwitchListTile('Gluten-Free',
+                    'Only include gluten-free meals', _glutenFree, (newValue) {
+                  setState(() {
+                    _glutenFree = newValue;
+                  });
+                }),
+                _buildSwitchListTile(
+                    'Lactose-Free',
+                    'Only include lactose-free meals',
+                    _lactoseFree, (newValue) {
+                  setState(() {
+                    _lactoseFree = newValue;
+                  });
+                }),
+                _buildSwitchListTile(
+                    'Vegetarian', 'Only include Vegetarian meals', _vegetarian,
+                    (newValue) {
+                  setState(() {
+                    _vegetarian = newValue;
+                  });
+                }),
+                _buildSwitchListTile(
+                    'Vegan', 'Only include Vegan meals', _vegan, (newValue) {
+                  setState(() {
+                    _vegan = newValue;
+                  });
+                }),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Container(
+              width: MediaQuery.of(context).size.width - 40,
+              child: ElevatedButton(
+                onPressed: () {
+                  final selectedFilters = {
+                    'gluten': _glutenFree,
+                    'lactose': _lactoseFree,
+                    'vegan': _vegan,
+                    'vegetarian': _vegetarian,
+                  };
+                  widget.saveFilters(selectedFilters);
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+                child: Text(
+                  'Save',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                    EdgeInsets.only(
+                      left: 30,
+                      right: 30,
+                      top: 20,
+                      bottom: 20,
+                    ),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
