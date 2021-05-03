@@ -22,7 +22,15 @@ class MealsToday with ChangeNotifier {
               complexity: element['complexity'],
               duration: element['duration'],
               imageUrl: element['imageUrl'],
-              ingredients: element['ingredients'],
+              step1: element['step1'],
+              step2: element['step2'],
+              step3: element['step3'],
+              step4: element['step4'],
+              step5: element['step5'],
+              item1: element['item1'],
+              item2: element['item2'],
+              item3: element['item3'],
+              item4: element['item4'],
             );
             mealsToday.add(meals);
           }
