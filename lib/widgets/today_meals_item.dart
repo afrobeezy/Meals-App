@@ -1,31 +1,75 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:mealsapp/screens/today_meals_screen.dart';
 
 class TodayMealsItem extends StatelessWidget {
-  final String imageUrl, title, ingredients, complexity;
+  final String imageUrl,
+      title,
+      complexity,
+      step1,
+      step2,
+      step3,
+      step4,
+      step5,
+      item1,
+      item2,
+      item3,
+      item4;
   const TodayMealsItem({
     this.imageUrl,
     this.title,
-    this.ingredients,
     this.complexity,
+    this.step1,
+    this.step2,
+    this.step3,
+    this.step4,
+    this.step5,
+    this.item1,
+    this.item2,
+    this.item3,
+    this.item4,
     Key key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => TodayMealsScreen(
+              imageUrl: imageUrl,
+              title: title,
+              complexity: complexity,
+              step1: step1,
+              step2: step2,
+              step3: step3,
+              step4: step4,
+              step5: step5,
+              item1: item1,
+              item2: item2,
+              item3: item3,
+              item4: item4,
+            ),
+          ),
+        );
+      },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: Container(
           child: Stack(
             children: [
-              FadeInImage(
-                placeholder: AssetImage('assets/load/load.gif'),
-                fadeInDuration: Duration(milliseconds: 300),
-                image: CachedNetworkImageProvider(imageUrl),
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+              Hero(
+                tag: title,
+                child: FadeInImage(
+                  placeholder: AssetImage('assets/load/load.gif'),
+                  fadeInDuration: Duration(milliseconds: 300),
+                  image: CachedNetworkImageProvider(imageUrl),
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                ),
               ),
               Container(
                 color: Colors.black26,
@@ -80,7 +124,7 @@ class TodayMealsItem extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        ingredients,
+                        'ingredients',
                         style: TextStyle(
                           fontFamily: 'Raleway',
                           fontSize: 13,
