@@ -113,14 +113,17 @@ class MealItem extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: Container(
-                    height: 130,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: CachedNetworkImageProvider(imageURL),
-                        fit: BoxFit.cover,
+                  child: Hero(
+                    tag: title,
+                    child: Container(
+                      height: 130,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: CachedNetworkImageProvider(imageURL),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      borderRadius: BorderRadius.circular(15),
                     ),
                   ),
                 ),
