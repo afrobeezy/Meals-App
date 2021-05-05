@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import '../data/dummy_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
@@ -63,12 +64,18 @@ class MealDetailScreen extends StatelessWidget {
               SizedBox(height: 30),
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Container(
-                  height: 180,
-                  width: double.infinity,
-                  child: Image.network(
-                    selectedMeal.imageUrl,
-                    fit: BoxFit.cover,
+                child: Hero(
+                  tag: selectedMeal.title,
+                  child: Container(
+                    height: 180,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image:
+                            CachedNetworkImageProvider(selectedMeal.imageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ),
