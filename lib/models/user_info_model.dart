@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:hive/hive.dart';
 part 'user_info_model.g.dart';
 

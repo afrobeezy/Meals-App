@@ -2,6 +2,15 @@ class TodayMeals {
   String id;
   String title;
   String imageUrl;
+  String course;
+  String preptime;
+  String cooktime;
+  String totaltime;
+  String servings;
+  String calories;
+  String fat;
+  String protein;
+  String carbo;
   String step1;
   String step2;
   String step3;
@@ -19,6 +28,15 @@ class TodayMeals {
     this.id,
     this.title,
     this.imageUrl,
+    this.course,
+    this.preptime,
+    this.cooktime,
+    this.totaltime,
+    this.servings,
+    this.calories,
+    this.fat,
+    this.protein,
+    this.carbo,
     this.step1,
     this.step2,
     this.step3,
