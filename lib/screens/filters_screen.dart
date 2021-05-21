@@ -156,12 +156,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 },
                 child: Text(
                   'Save',
-                  style: TextStyle(
-                    fontFamily: 'Raleway',
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
                 ),
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -173,7 +167,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     ),
                   ),
                   elevation: MaterialStateProperty.all(0),
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                  textStyle: MaterialStateProperty.all<TextStyle>(
+                    TextStyle(
+                      fontFamily: 'Raleway',
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).hoverColor,
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).focusColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
