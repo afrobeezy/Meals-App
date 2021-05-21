@@ -17,21 +17,21 @@ class CategoryItem extends StatelessWidget {
   );
 
   void selectCategory(BuildContext context) {
-    Navigator.pushNamed(
-      context,
-      'category-meals',
+    // Navigator.pushNamed(
+    //   context,
+    //   'category-meals',
+    //   arguments: {
+    //     'id': id,
+    //     'title': title,
+    //   },
+    // );
+    Navigator.of(context).pushNamed(
+      CategoryMealsScreen.routeName,
       arguments: {
         'id': id,
         'title': title,
       },
     );
-    //   Navigator.of(context).pushNamed(
-    //     CategoryMealsScreen.routeName,
-    //     arguments: {
-    //       'id': id,
-    //       'title': title,
-    //     },
-    //   );
   }
 
   @override
@@ -45,15 +45,15 @@ class CategoryItem extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Theme.of(context).hintColor,
+              color: Colors.transparent,
             ),
-            height: 220,
+            height: 200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 150,
-                  margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                  height: 160,
+                  // margin: const EdgeInsets.only(left: 15, right: 15, top: 15),
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: CachedNetworkImageProvider(imageURL),
@@ -64,16 +64,13 @@ class CategoryItem extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).hoverColor),
-                    ),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        fontFamily: 'Raleway',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).hoverColor),
                   ),
                 ),
               ],
