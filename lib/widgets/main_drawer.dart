@@ -41,9 +41,10 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/mb.jpg'),
-                fit: BoxFit.cover,
-              ),
+                  image: AssetImage('assets/images/fufu.jpg'),
+                  fit: BoxFit.cover,
+                  colorFilter:
+                      ColorFilter.mode(Colors.black26, BlendMode.darken)),
             ),
             child: Text(
               'Meal Bible',
