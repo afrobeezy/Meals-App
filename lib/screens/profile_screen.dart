@@ -88,22 +88,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontFamily: 'Raleway',
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
-                          color: Colors.grey[600],
+                          color: Colors.grey[700],
                         ),
                       ),
                     ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(_userInfoModel.photoUrl),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    height: 50,
-                    width: 50,
-                  ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(10),
+                  //     image: DecorationImage(
+                  //       image: AssetImage(_userInfoModel.photoUrl),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  //   height: 50,
+                  //   width: 50,
+                  // ),
                 ],
               ),
               SizedBox(height: 40),
