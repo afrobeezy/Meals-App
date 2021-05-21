@@ -43,11 +43,11 @@ class LoginScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/exotic.jpeg",
+                  "assets/images/jolloff.jpg",
                 ),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.black45,
+                  Colors.black54,
                   BlendMode.darken,
                 ),
               ),
