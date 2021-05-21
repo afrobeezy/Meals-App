@@ -32,6 +32,10 @@ class Constants {
     //     TargetPlatform.windows: CustomPageTransitionBuilder(),
     //   },
     // ),
+    pageTransitionsTheme: PageTransitionsTheme(builders: {
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(
@@ -77,6 +81,10 @@ class Constants {
     //     TargetPlatform.windows: CustomPageTransitionBuilder(),
     //   },
     // ),
+    pageTransitionsTheme: PageTransitionsTheme(builders: {
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
         headline6: TextStyle(
