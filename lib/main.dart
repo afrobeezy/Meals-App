@@ -18,6 +18,7 @@ import './models/meal.dart';
 import 'package:mealsapp/utils/const.dart';
 import 'package:flutter/services.dart';
 
+//main function that runs the app
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
@@ -141,19 +142,6 @@ class _MyAppState extends State<MyApp> {
         // ignore: missing_return
         onGenerateRoute: (settings) {
           print(settings.arguments);
-          switch (settings.name) {
-            case 'category-meals':
-              return CupertinoPageRoute(
-                  builder: (_) => CategoryMealsScreen(_availableMeals),
-                  settings: settings);
-            case 'meal-detail':
-              return CupertinoPageRoute(
-                  builder: (_) => MealDetailScreen(
-                        _toggleFavorite,
-                        isMealFavorite,
-                      ),
-                  settings: settings);
-          }
         },
         onUnknownRoute: (settings) {
           return MaterialPageRoute(
