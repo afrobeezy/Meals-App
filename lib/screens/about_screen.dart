@@ -20,7 +20,7 @@ class AboutScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Version 1.0.0',
+                'Version 1.2.2',
                 style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 25,
@@ -29,7 +29,7 @@ class AboutScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'Build version 40218.38810201',
+                'Build version 1.2.2(1001)',
                 style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 15,
@@ -38,7 +38,7 @@ class AboutScreen extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                'Codepush version v1.0.0',
+                'Codepush version v1.2.2',
                 style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 15,
