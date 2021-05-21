@@ -64,24 +64,139 @@ class MealDetailScreen extends StatelessWidget {
               SizedBox(height: 30),
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Hero(
-                  tag: selectedMeal.title,
-                  child: Container(
-                    height: 180,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            CachedNetworkImageProvider(selectedMeal.imageUrl),
-                        fit: BoxFit.cover,
-                      ),
+                child: Container(
+                  height: 180,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: CachedNetworkImageProvider(selectedMeal.imageUrl),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
-              buildSectionTitle(
-                context,
-                'Ingredients',
+              SizedBox(height: 10),
+              Text(
+                '${selectedMeal.description}',
+                style: TextStyle(
+                  fontFamily: 'Raleway',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).hoverColor,
+                ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Prep Time',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      Text(
+                        '${selectedMeal.preptime} min',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Cook Time',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      Text(
+                        '${selectedMeal.cooktime} min',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Total Time',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      Text(
+                        '${selectedMeal.totaltime} min',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  buildSectionTitle(context, 'Course'),
+                  Text(
+                    '${selectedMeal.course}',
+                    style: TextStyle(
+                      fontFamily: 'Raleway',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: Theme.of(context).hoverColor,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  buildSectionTitle(context, 'Ingredients'),
+                  Container(
+                    height: 25,
+                    width: 80,
+                    child: Center(
+                      child: Text(
+                        '${selectedMeal.servings}',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).highlightColor,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Theme.of(context).hoverColor),
+                  )
+                ],
               ),
               buildContainer(
                 ListView.builder(
@@ -95,6 +210,170 @@ class MealDetailScreen extends StatelessWidget {
                   ),
                   itemCount: selectedMeal.ingredients.length,
                 ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Theme.of(context).hintColor,
+                        child: Center(
+                          child: Text(
+                            '${selectedMeal.calories}',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).hoverColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Calories',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'kcal',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Theme.of(context).hintColor,
+                        child: Center(
+                          child: Text(
+                            '${selectedMeal.fat}',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).hoverColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Fat',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'g',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Theme.of(context).hintColor,
+                        child: Center(
+                          child: Text(
+                            '${selectedMeal.protein}',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).hoverColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Protein',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'g',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Theme.of(context).hintColor,
+                        child: Center(
+                          child: Text(
+                            '${selectedMeal.carbo}',
+                            style: TextStyle(
+                              fontFamily: 'Raleway',
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).hoverColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Carbo',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).hoverColor,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'g',
+                        style: TextStyle(
+                          fontFamily: 'Raleway',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               buildSectionTitle(context, 'Steps'),
               buildContainer(
