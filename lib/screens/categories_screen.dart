@@ -8,7 +8,6 @@ import 'package:mealsapp/widgets/main_drawer.dart';
 import 'package:provider/provider.dart';
 import '../data/dummy_data.dart';
 import '../widgets/category_item.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -56,6 +55,20 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     final Box<UserInfoModel> _userBox =
         Provider.of<Box<UserInfoModel>>(context);
     final UserInfoModel _userInfoModel = _userBox.values.first;
+
+    String greetingMessage() {
+      var timeNow = DateTime.now().hour;
+      if (timeNow <= 12) {
+        return 'Good Morning, ';
+      } else if ((timeNow > 12) && (timeNow <= 16)) {
+        return 'Good Afternoon, ';
+      } else if ((timeNow > 16) && (timeNow < 23)) {
+        return 'Good Evening, ';
+      } else {
+        return 'Good Night, ';
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -111,10 +124,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           child: Container(
                             child: RichText(
                               text: TextSpan(
-                                text: 'Hello, ',
+                                text: greetingMessage(),
                                 style: TextStyle(
                                     fontFamily: 'Raleway',
-                                    fontSize: 30,
+                                    fontSize: 25,
                                     fontWeight: FontWeight.w400,
                                     color: Theme.of(context).hoverColor),
                                 children: [
@@ -122,7 +135,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                     text: _userInfoModel.fname,
                                     style: TextStyle(
                                       fontFamily: 'Raleway',
-                                      fontSize: 30,
+                                      fontSize: 25,
                                       fontWeight: FontWeight.bold,
                                       color: Theme.of(context).hoverColor,
                                     ),
@@ -142,10 +155,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             child: Text(
                               'What would you like to cook today ?',
                               style: TextStyle(
-                                  fontFamily: 'Raleway',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Theme.of(context).hoverColor),
+                                fontFamily: 'Raleway',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: Theme.of(context).hoverColor,
+                              ),
                             ),
                           ),
                         ),
@@ -167,7 +181,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         ),
                       ),
                       Container(
-                        height: 230,
+                        height: 250,
                         child: GridView.builder(
                           scrollDirection: Axis.horizontal,
                           physics: BouncingScrollPhysics(
@@ -175,7 +189,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           padding: const EdgeInsets.all(20),
                           gridDelegate:
                               SliverGridDelegateWithMaxCrossAxisExtent(
-                            childAspectRatio: 3 / 2.2,
+                            childAspectRatio: 3 / 2.0,
                             maxCrossAxisExtent: 200,
                             crossAxisSpacing: 10,
                             mainAxisSpacing: 10,
@@ -185,7 +199,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             return TodayMealsItem(
                               imageUrl: mealList[index].imageUrl ?? "",
                               title: mealList[index].title ?? "",
+                              id: mealList[index].id ?? "",
                               complexity: mealList[index].complexity ?? "",
+                              course: mealList[index].course ?? "",
+                              preptime: mealList[index].preptime ?? "",
+                              cooktime: mealList[index].cooktime ?? "",
+                              totaltime: mealList[index].totaltime ?? "",
+                              servings: mealList[index].servings ?? "",
+                              calories: mealList[index].calories ?? "",
+                              fat: mealList[index].fat ?? "",
+                              protein: mealList[index].protein ?? "",
+                              carbo: mealList[index].carbo ?? "",
                               step1: mealList[index].step1 ?? "",
                               step2: mealList[index].step2 ?? "",
                               step3: mealList[index].step3 ?? "",
@@ -215,7 +239,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         ),
                       ),
                       Container(
-                        height: 935,
+                        height: 850,
                         child: ListView(
                           padding: const EdgeInsets.all(20),
                           physics: NeverScrollableScrollPhysics(),
