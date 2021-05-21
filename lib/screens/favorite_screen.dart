@@ -68,6 +68,25 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       );
     } else
       return Scaffold(
+        appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              icon: menuButton,
+              onPressed: () => scaffoldKey.currentState.openDrawer(),
+            ),
+          ),
+          centerTitle: false,
+          title: Text(
+            'My Favorites',
+            style: TextStyle(color: Theme.of(context).focusColor),
+          ),
+          backgroundColor: Theme.of(context).primaryColor,
+          iconTheme: new IconThemeData(color: Colors.red),
+          elevation: 0.0,
+        ),
         key: scaffoldKey,
         drawer: Drawer(
           child: MainDrawer(),
