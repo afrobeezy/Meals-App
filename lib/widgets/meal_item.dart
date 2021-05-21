@@ -8,6 +8,7 @@ import '../widgets/responsive_widget.dart';
 class MealItem extends StatelessWidget {
   final String id;
   final String title;
+  final String description;
   final String imageURL;
   final int duration;
   final complexity;
@@ -16,6 +17,7 @@ class MealItem extends StatelessWidget {
   MealItem(
       {this.id,
       this.title,
+      this.description,
       this.imageURL,
       this.duration,
       this.complexity,
@@ -113,17 +115,14 @@ class MealItem extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: Hero(
-                    tag: title,
-                    child: Container(
-                      height: 130,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: CachedNetworkImageProvider(imageURL),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
+                  child: Container(
+                    height: 130,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: CachedNetworkImageProvider(imageURL),
+                        fit: BoxFit.cover,
                       ),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                   ),
                 ),
