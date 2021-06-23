@@ -1,13 +1,19 @@
 
-## About
+## Meal Bible
 
-A Bible, but for meals.
+Meal Bible is a meal recipe app that has easy-to-follow instructions on how to prepare meals for both amateur home cooks and professional chefs. The app provides detailed step-by-step instructions on how to prepare meals, leaving no guesswork. The instructions are quick but comprehensive, enabling the user to understand the full scope of the procedure before they purchase the necessary ingredients.
 
-<!-- # Screenshots
-|  | |  |
-| :---: | --- | :---: |
-| <img src="https://github.com/michaeldadzie/Meals-App/blob/master/Screenshots/meal.png" width="300"> || <img src="https://github.com/michaeldadzie/Meals-App/blob/master/Screenshots/fav.png" width="300"> |
-|  ||  | -->
+# Screenshots
+<table>
+   <tr>
+    <td>
+      <img src="https://github.com/michaeldadzie/Meal-Bible/blob/master/assets/screenshots/mb1.png" />
+    </td>
+    <td>
+      <img src="https://github.com/michaeldadzie/Meal-Bible/blob/master/assets/screenshots/mb2.png" />
+    </td>
+  </tr>
+</table>
 
 ## Building
 
